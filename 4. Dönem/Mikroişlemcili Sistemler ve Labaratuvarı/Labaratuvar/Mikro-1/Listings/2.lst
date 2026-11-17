@@ -1,0 +1,42 @@
+A51 MACRO ASSEMBLER  2                                                                    04/28/2025 13:10:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 2.a51 SET(SMALL) DEBUG PRINT(.\Listings\2.lst) OBJECT(.\Objects\2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H           ; program 00H adresinden baslasin
+0000 802E              2             SJMP DEVAM 
+0030                   3             ORG 30H
+0030                   4     DEVAM:            ; 
+0030 7400              5         MOV A, #0     ; aküye 0 sabit degerinin yüklenmesi
+0032 F5A0              6         MOV P2, A     ; aküyü P2’ye yükle
+                       7     
+0034                   8     SIFIR:
+0034 2091F9            9         JB P1.1, DEVAM ; P1.1 = 1 ise devam etiketine dallan
+0037 3090FA           10         JNB P1.0, SIFIR ; P1.0 = 0 ise sifir etiketine dallan
+003A 04               11         INC A         ; aküyü 1 arttir
+003B F5A0             12         MOV P2, A     ; aküyü P2’ye yükle
+003D B409F4           13         CJNE A, #9, SIFIR ; aküyü 9 ile karsilastir, esit degilse sifir etiketine dallan
+0040 80EE             14         SJMP DEVAM     ; devam etiketine dallan
+                      15             END
+A51 MACRO ASSEMBLER  2                                                                    04/28/2025 13:10:00 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEVAM. . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SIFIR. . . . . . .  C ADDR   0034H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

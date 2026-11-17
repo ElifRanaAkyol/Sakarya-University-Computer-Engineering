@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  1                                                                    04/29/2025 19:25:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 1.a51 SET(SMALL) DEBUG PRINT(.\Listings\1.lst) OBJECT(.\Objects\1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG 00H
+0000 802E              2                     SJMP BASLA
+0030                   3                     ORG 30H
+0030 758900            4     BASLA:  MOV TMOD,#00H           ;MOD 0
+0033 758A18            5     SAY:    MOV TL0, #18H
+0036 758CE0            6                     MOV TH0, #0E0H
+0039 D28C              7                     SETB TR0                        ;ZAMANLAYICI SAYMAYI BASLATIR
+003B 308DFD            8     KONTROL:JNB TF0,KONTROL         ;TIMER FLAG KONTROL EDILIR 0'SA KONTROLE GIDER tasma kontro
+                             l edilir
+003E 04                9                     INC A                           ;1000 sayimda bir A arttirilir
+003F 80F2             10                     SJMP SAY                        ;SAYMAYI BASA SARAR
+                      11                     END
+A51 MACRO ASSEMBLER  1                                                                    04/29/2025 19:25:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BASLA. . . . . . .  C ADDR   0030H   A   
+KONTROL. . . . . .  C ADDR   003BH   A   
+SAY. . . . . . . .  C ADDR   0033H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,144 @@
+A51 MACRO ASSEMBLER  KEYPAD                                                               05/26/2025 13:59:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\keypad.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE keypad.a51 SET(SMALL) DEBUG PRINT(.\Listings\keypad.lst) OBJECT(.\Objec
+                      ts\keypad.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+0000 802E              2     sjmp basla             ; Baslangiç adresine ziplama
+0030                   3     org 0030h
+                       4     
+0030                   5     basla:
+0030 7580FF            6     mov p0, #0FFh          ; P0 ilk basta tüm satirlari 1 yap (inactive)
+0033 75B0FF            7     mov p3, #0FFh          ; P3 temizlenir
+                       8     
+0036                   9     dongu:
+                      10     ; ----- 1. Satir taraniyor (P0.4 aktif) -----
+0036 7580FF           11     mov p0, #0FFh
+0039 C284             12     clr p0.4               ; 1. satiri aktif et (LOW yap)
+003B 30803E           13     jnb p0.0, bir_bas      ; 1 tusu
+003E 308141           14     jnb p0.1, iki_bas      ; 2 tusu
+0041 308244           15     jnb p0.2, uc_bas       ; 3 tusu
+0044 308347           16     jnb p0.3, A_bas        ; A tusu
+0047 D284             17     setb p0.4              ; 1. satiri pasif yap
+                      18     
+                      19     ; ----- 2. Satir taraniyor (P0.5 aktif) -----
+0049 C285             20     clr p0.5
+004B 308046           21     jnb p0.0, dort_bas     ; 4 tusu
+004E 308149           22     jnb p0.1, bes_bas      ; 5 tusu
+0051 30824C           23     jnb p0.2, alti_bas     ; 6 tusu
+0054 30834F           24     jnb p0.3, B_bas        ; B tusu
+0057 D285             25     setb p0.5
+                      26     
+                      27     ; ----- 3. Satir taraniyor (P0.6 aktif) -----
+0059 C286             28     clr p0.6
+005B 30804E           29     jnb p0.0, yedi_bas     ; 7 tusu
+005E 308151           30     jnb p0.1, sekiz_bas    ; 8 tusu
+0061 308254           31     jnb p0.2, dokuz_bas    ; 9 tusu
+0064 308357           32     jnb p0.3, C_bas        ; C tusu
+0067 D286             33     setb p0.6
+                      34     
+                      35     ; ----- 4. Satir taraniyor (P0.7 aktif) -----
+0069 C287             36     clr p0.7
+006B 308056           37     jnb p0.0, yildiz_bas   ; * tusu
+006E 308159           38     jnb p0.1, sifir_bas    ; 0 tusu
+0071 30825C           39     jnb p0.2, kare_bas     ; # tusu
+0074 30835F           40     jnb p0.3, D_bas        ; D tusu
+0077 D287             41     setb p0.7
+                      42     
+0079 020036           43     ljmp dongu             ; Sonsuz döngüye gir
+                      44     
+                      45     ; ----------- Tus Fonksiyonlari -------------
+007C 75B001           46     bir_bas:     mov p3,#01h   ; 1 ? P3 = 01h
+007F 0200DC           47                  ljmp donus
+                      48     
+0082 75B002           49     iki_bas:     mov p3,#02h   ; 2
+0085 0200DC           50                  ljmp donus
+                      51     
+0088 75B003           52     uc_bas:      mov p3,#03h   ; 3
+008B 0200DC           53                  ljmp donus
+                      54     
+008E 75B00A           55     A_bas:       mov p3,#0Ah   ; A = 0Ah
+0091 0200DC           56                  ljmp donus
+                      57     
+A51 MACRO ASSEMBLER  KEYPAD                                                               05/26/2025 13:59:41 PAGE     2
+
+0094 75B004           58     dort_bas:    mov p3,#04h   ; 4
+0097 0200DC           59                  ljmp donus
+                      60     
+009A 75B005           61     bes_bas:     mov p3,#05h   ; 5
+009D 0200DC           62                  ljmp donus
+                      63     
+00A0 75B006           64     alti_bas:    mov p3,#06h   ; 6
+00A3 0200DC           65                  ljmp donus
+                      66     
+00A6 75B00B           67     B_bas:       mov p3,#0Bh   ; B = 0Bh
+00A9 0200DC           68                  ljmp donus
+                      69     
+00AC 75B007           70     yedi_bas:    mov p3,#07h   ; 7
+00AF 0200DC           71                  ljmp donus
+                      72     
+00B2 75B008           73     sekiz_bas:   mov p3,#08h   ; 8
+00B5 0200DC           74                  ljmp donus
+                      75     
+00B8 75B009           76     dokuz_bas:   mov p3,#09h   ; 9
+00BB 0200DC           77                  ljmp donus
+                      78     
+00BE 75B00C           79     C_bas:       mov p3,#0Ch   ; C = 0Ch
+00C1 0200DC           80                  ljmp donus
+                      81     
+00C4 75B00E           82     yildiz_bas:  mov p3,#0Eh   ; * = 0Eh
+00C7 0200DC           83                  ljmp donus
+                      84     
+00CA 75B000           85     sifir_bas:   mov p3,#00h   ; 0
+00CD 0200DC           86                  ljmp donus
+                      87     
+00D0 75B00F           88     kare_bas:    mov p3,#0Fh   ; # = 0Fh
+00D3 0200DC           89                  ljmp donus
+                      90     
+00D6 75B00D           91     D_bas:       mov p3,#0Dh   ; D = 0Dh
+00D9 0200DC           92                  ljmp donus
+                      93     
+00DC                  94     donus:
+00DC 020036           95     ljmp dongu
+                      96     
+                      97     end
+A51 MACRO ASSEMBLER  KEYPAD                                                               05/26/2025 13:59:41 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ALTI_BAS . . . . .  C ADDR   00A0H   A   
+A_BAS. . . . . . .  C ADDR   008EH   A   
+BASLA. . . . . . .  C ADDR   0030H   A   
+BES_BAS. . . . . .  C ADDR   009AH   A   
+BIR_BAS. . . . . .  C ADDR   007CH   A   
+B_BAS. . . . . . .  C ADDR   00A6H   A   
+C_BAS. . . . . . .  C ADDR   00BEH   A   
+DOKUZ_BAS. . . . .  C ADDR   00B8H   A   
+DONGU. . . . . . .  C ADDR   0036H   A   
+DONUS. . . . . . .  C ADDR   00DCH   A   
+DORT_BAS . . . . .  C ADDR   0094H   A   
+D_BAS. . . . . . .  C ADDR   00D6H   A   
+IKI_BAS. . . . . .  C ADDR   0082H   A   
+KARE_BAS . . . . .  C ADDR   00D0H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SEKIZ_BAS. . . . .  C ADDR   00B2H   A   
+SIFIR_BAS. . . . .  C ADDR   00CAH   A   
+UC_BAS . . . . . .  C ADDR   0088H   A   
+YEDI_BAS . . . . .  C ADDR   00ACH   A   
+YILDIZ_BAS . . . .  C ADDR   00C4H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

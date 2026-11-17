@@ -1,0 +1,44 @@
+A51 MACRO ASSEMBLER  2                                                                    04/29/2025 19:25:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 2.a51 SET(SMALL) DEBUG PRINT(.\Listings\2.lst) OBJECT(.\Objects\2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG 00H
+0000 802E              2                     SJMP BASLA
+0030                   3                     ORG 30H
+0030 758902            4     BASLA:  MOV TMOD, #02H ;MOD 2
+0033 758AF6            5                     MOV TL0, #246   ;TL0 SAYMAYA BASLAR TASINCA TH0DAKI DEGER BURAYA AKTARILIR
+0036 758CF6            6                     MOV TH0, #-10 ;246 YA DENK GELIR. 
+0039 D28C              7                     SETB TR0 
+003B 308DFD            8     KONTROL:JNB TF0, KONTROL
+003E C28D              9                     CLR TF0
+0040 B290             10                     CPL P1.0 ;HER 10 MIKROSANIYEDE BIR TOGGLE YAPARAK 20 MSANIYE PERIYOTLUK KAR
+                             E SINYAL DALGASI OLUSTURULUR
+0042 80F7             11                     SJMP KONTROL
+                      12                     END
+A51 MACRO ASSEMBLER  2                                                                    04/29/2025 19:25:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BASLA. . . . . . .  C ADDR   0030H   A   
+KONTROL. . . . . .  C ADDR   003BH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

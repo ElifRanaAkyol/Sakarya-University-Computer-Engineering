@@ -1,0 +1,143 @@
+A51 MACRO ASSEMBLER  KEYPAD                                                               05/26/2025 14:18:37 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\keypad.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE keypad.a51 SET(SMALL) DEBUG PRINT(.\Listings\keypad.lst) OBJECT(.\Objec
+                      ts\keypad.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+0000 802E              2     sjmp basla            
+0030                   3     org 0030h
+                       4     
+0030                   5     basla:
+0030 7580FF            6     mov p0, #0FFh          
+0033 75B0FF            7     mov p3, #0FFh          
+                       8     
+0036                   9     dongu:
+0036 7580FF           10     mov p0, #0FFh
+0039 C284             11     clr p0.4              
+003B 30803E           12     jnb p0.0, bir_bas      
+003E 308141           13     jnb p0.1, iki_bas      
+0041 308244           14     jnb p0.2, uc_bas       
+0044 308347           15     jnb p0.3, A_bas        
+0047 D284             16     setb p0.4             
+                      17     
+                      18     
+0049 C285             19     clr p0.5
+004B 308046           20     jnb p0.0, dort_bas    
+004E 308149           21     jnb p0.1, bes_bas     
+0051 30824C           22     jnb p0.2, alti_bas     
+0054 30834F           23     jnb p0.3, B_bas        
+0057 D285             24     setb p0.5
+                      25     
+                      26     
+0059 C286             27     clr p0.6
+005B 30804E           28     jnb p0.0, yedi_bas    
+005E 308151           29     jnb p0.1, sekiz_bas    
+0061 308254           30     jnb p0.2, dokuz_bas    
+0064 308357           31     jnb p0.3, C_bas        
+0067 D286             32     setb p0.6
+                      33     
+                      34     
+0069 C287             35     clr p0.7
+006B 308056           36     jnb p0.0, yildiz_bas   
+006E 308159           37     jnb p0.1, sifir_bas    
+0071 30825C           38     jnb p0.2, kare_bas     
+0074 30835F           39     jnb p0.3, D_bas        
+0077 D287             40     setb p0.7
+                      41     
+0079 020036           42     ljmp dongu             
+                      43     
+                      44     
+007C 75B0FE           45     bir_bas:     mov p3,#11111110B 
+007F 0200DC           46                  ljmp donus
+                      47     
+0082 75B0FD           48     iki_bas:     mov p3,#11111101B   
+0085 0200DC           49                  ljmp donus
+                      50     
+0088 75B0FC           51     uc_bas:      mov p3,#11111100B   
+008B 0200DC           52                  ljmp donus
+                      53     
+008E 75B0F5           54     A_bas:       mov p3,#11110101B  
+0091 0200DC           55                  ljmp donus
+                      56     
+0094 75B0FB           57     dort_bas:    mov p3,#11111011B   
+A51 MACRO ASSEMBLER  KEYPAD                                                               05/26/2025 14:18:37 PAGE     2
+
+0097 0200DC           58                  ljmp donus
+                      59     
+009A 75B0FA           60     bes_bas:     mov p3,#11111010B   
+009D 0200DC           61                  ljmp donus
+                      62     
+00A0 75B0F9           63     alti_bas:    mov p3,#11111001B    
+00A3 0200DC           64                  ljmp donus
+                      65     
+00A6 75B0F4           66     B_bas:       mov p3,#11110100B    
+00A9 0200DC           67                  ljmp donus
+                      68     
+00AC 75B0F8           69     yedi_bas:    mov p3,#11111000B  
+00AF 0200DC           70                  ljmp donus
+                      71     
+00B2 75B0F7           72     sekiz_bas:   mov p3,#11110111B  
+00B5 0200DC           73                  ljmp donus
+                      74     
+00B8 75B0F6           75     dokuz_bas:   mov p3,#11110110B   
+00BB 0200DC           76                  ljmp donus
+                      77     
+00BE 75B0F3           78     C_bas:       mov p3,#11110011B    
+00C1 0200DC           79                  ljmp donus
+                      80     
+00C4 75B0F1           81     yildiz_bas:  mov p3,#11110001B   
+00C7 0200DC           82                  ljmp donus
+                      83     
+00CA 75B0FF           84     sifir_bas:   mov p3,#11111111B   
+00CD 0200DC           85                  ljmp donus
+                      86     
+00D0 75B0F0           87     kare_bas:    mov p3,#11110000B    
+00D3 0200DC           88                  ljmp donus
+                      89     
+00D6 75B0F2           90     D_bas:       mov p3,#11110010B   
+00D9 0200DC           91                  ljmp donus
+                      92     
+00DC                  93     donus:
+00DC 020036           94     ljmp dongu
+                      95     
+                      96     end
+A51 MACRO ASSEMBLER  KEYPAD                                                               05/26/2025 14:18:37 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ALTI_BAS . . . . .  C ADDR   00A0H   A   
+A_BAS. . . . . . .  C ADDR   008EH   A   
+BASLA. . . . . . .  C ADDR   0030H   A   
+BES_BAS. . . . . .  C ADDR   009AH   A   
+BIR_BAS. . . . . .  C ADDR   007CH   A   
+B_BAS. . . . . . .  C ADDR   00A6H   A   
+C_BAS. . . . . . .  C ADDR   00BEH   A   
+DOKUZ_BAS. . . . .  C ADDR   00B8H   A   
+DONGU. . . . . . .  C ADDR   0036H   A   
+DONUS. . . . . . .  C ADDR   00DCH   A   
+DORT_BAS . . . . .  C ADDR   0094H   A   
+D_BAS. . . . . . .  C ADDR   00D6H   A   
+IKI_BAS. . . . . .  C ADDR   0082H   A   
+KARE_BAS . . . . .  C ADDR   00D0H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SEKIZ_BAS. . . . .  C ADDR   00B2H   A   
+SIFIR_BAS. . . . .  C ADDR   00CAH   A   
+UC_BAS . . . . . .  C ADDR   0088H   A   
+YEDI_BAS . . . . .  C ADDR   00ACH   A   
+YILDIZ_BAS . . . .  C ADDR   00C4H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

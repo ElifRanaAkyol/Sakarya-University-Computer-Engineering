@@ -1,0 +1,75 @@
+A51 MACRO ASSEMBLER  HARF                                                                 05/26/2025 13:59:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\harf.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE harf.a51 SET(SMALL) DEBUG PRINT(.\Listings\harf.lst) OBJECT(.\Objects\h
+                      arf.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+0000 802E              2     sjmp basla
+                       3     
+0030                   4     org 0030h
+0030                   5     basla:
+0030 7580F0            6     mov p0,#0f0h    
+0033 7590FF            7     mov p1,#0ffh    
+                       8     
+0036                   9     dongu:
+                      10     ; 1 rakami
+0036 758092           11     mov p0,#092h    
+0039 759000           12     mov p1,#00h      
+003C D293             13     setb p1.3        
+003E 120065           14     lcall bekle
+                      15     
+                      16     ; 2 rakami
+0041 758087           17     mov p0,#087h     
+0044 759000           18     mov p1,#00h
+0047 D292             19     setb p1.2       
+0049 120065           20     lcall bekle
+                      21     
+                      22     ; 3 rakami
+004C 7580C1           23     mov p0,#0C1h     
+004F 759000           24     mov p1,#00h
+0052 D291             25     setb p1.1        
+0054 120065           26     lcall bekle
+                      27     
+                      28     ; 4 rakami
+0057 7580E3           29     mov p0,#0E3h     
+005A 759000           30     mov p1,#00h
+005D D290             31     setb p1.0        
+005F 120065           32     lcall bekle
+                      33     
+0062 020036           34     ljmp dongu
+                      35     
+                      36     
+0065                  37     bekle:
+0065 7FFF             38     mov r7,#0ffh
+0067                  39     tekrar: 
+0067 7E01             40     mov r6,#001h
+0069 DEFE             41     djnz r6,$
+006B DFFA             42     djnz r7,tekrar
+006D 22               43     ret
+                      44     
+                      45     end
+A51 MACRO ASSEMBLER  HARF                                                                 05/26/2025 13:59:41 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BASLA. . . . . . .  C ADDR   0030H   A   
+BEKLE. . . . . . .  C ADDR   0065H   A   
+DONGU. . . . . . .  C ADDR   0036H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TEKRAR . . . . . .  C ADDR   0067H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,76 @@
+A51 MACRO ASSEMBLER  1                                                                    05/12/2025 13:47:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 1.a51 SET(SMALL) DEBUG PRINT(.\Listings\1.lst) OBJECT(.\Objects\1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000h
+0000 802E              2         SJMP BASLA
+                       3     
+0030                   4     ORG 0030h
+0030                   5     BASLA:
+                       6         ; Ortadaki 2 LED
+0030 7580E7            7         MOV P0, #0E7h
+0033 115B              8         ACALL BEKLE
+                       9     
+                      10         ; 4 LED
+0035 7580C3           11         MOV P0, #0C3h
+0038 115B             12         ACALL BEKLE
+                      13     
+                      14         ; 6 LED
+003A 758081           15         MOV P0, #081h
+003D 115B             16         ACALL BEKLE
+                      17     
+                      18         ; Tüm LED
+003F 758000           19         MOV P0, #00h
+0042 115B             20         ACALL BEKLE
+                      21     
+                      22         ; Geri 6 LED
+0044 758081           23         MOV P0, #081h
+0047 115B             24         ACALL BEKLE
+                      25     
+                      26         ; Geri 4 LED
+0049 7580C3           27         MOV P0, #0C3h
+004C 115B             28         ACALL BEKLE
+                      29     
+                      30         ; Geri 2 LED
+004E 7580E7           31         MOV P0, #0E7h
+0051 115B             32         ACALL BEKLE
+                      33     
+                      34         ; LED'leri kapat
+0053 7580FF           35         MOV P0, #0FFh
+0056 115B             36         ACALL BEKLE
+                      37     
+0058 020030           38         LJMP BASLA
+                      39     
+                      40     ; Gecikme alt programi
+005B                  41     BEKLE:
+005B 7FFF             42         MOV R7, #0FFh
+005D                  43     TEKRAR:
+005D 7EFF             44         MOV R6, #0FFh
+005F DEFE             45         DJNZ R6, $
+0061 DFFA             46         DJNZ R7, TEKRAR
+0063 22               47         RET
+                      48     
+                      49     END
+A51 MACRO ASSEMBLER  1                                                                    05/12/2025 13:47:46 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BASLA. . . . . . .  C ADDR   0030H   A   
+BEKLE. . . . . . .  C ADDR   005BH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+TEKRAR . . . . . .  C ADDR   005DH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

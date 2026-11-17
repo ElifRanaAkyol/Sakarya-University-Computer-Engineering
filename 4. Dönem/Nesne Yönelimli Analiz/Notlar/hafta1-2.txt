@@ -1,0 +1,224 @@
+﻿public class App {
+public static void main(String[] args) throws Exception {
+
+Daire daire1=new Daire(5);
+daire1.EkranaYazdir();
+Daire daire2=new Daire(10);
+daire2.EkranaYazdir();
+
+Daire daire3=new Daire(15);
+daire3.EkranaYazdir();
+
+Dikdortgen dikdortgen1=new Dikdortgen(5,10);
+dikdortgen1.EkranaYazdir();
+Dikdortgen dikdortgen2=new Dikdortgen(10,20);
+dikdortgen2.EkranaYazdir();
+
+Dikdortgen dikdortgen3=new Dikdortgen(15,-30);
+dikdortgen3.EkranaYazdir();
+
+Kare kare1=new Kare(5);
+kare1.EkranaYazdir();
+
+Kare kare2=new Kare(10);
+kare2.EkranaYazdir();
+
+Ucgen ucgen1=new Ucgen(5,10,15,20);
+ucgen1.EkranaYazdir();
+
+Silindir silindir1=new Silindir(5,10);
+silindir1.EkranaYazdir();
+}
+
+
+public abstract class SekilBase {
+private double kenar1;
+
+protected void setKenar1(double kenar1) {
+if(kenar1<0){
+this.kenar1=0;
+System.out.println("Kenar negatif olamaz!");
+}
+else {
+this.kenar1 = kenar1;
+}
+}
+protected double getKenar1() {
+return kenar1;
+}
+
+public SekilBase(double kenar1) {
+setKenar1(kenar1);
+}
+
+protected abstract double AlanHesapla();
+
+protected abstract double CevreHesapla();
+public abstract void EkranaYazdir();
+
+}
+
+
+public class Dikdortgen extends SekilBase {
+
+private double kenar2;
+
+private double getKenar2() {
+return kenar2;
+}
+
+private void setKenar2(double kenar2) {
+if (kenar2 < 0) {
+this.kenar2 = 0;
+System.out.println("Kenar negatif olamaz!");
+} else {
+this.kenar2 = kenar2;
+}
+}
+
+public Dikdortgen(double kisaKenar,double uzunKenar)
+{
+super(kisaKenar);
+this.setKenar2(uzunKenar);
+}
+
+@Override
+protected double AlanHesapla() {
+return getKenar1() * getKenar2();
+}
+@Override
+protected double CevreHesapla() {
+return 2 * (getKenar1() + getKenar2());
+}
+@Override
+public void EkranaYazdir() {
+System.out.println("Dikdörtgenin Alanı: " + AlanHesapla());
+System.out.println("Dikdörtgenin Çevresi: " + CevreHesapla());
+}
+
+
+}
+
+public class Kare extends SekilBase {
+public Kare(double kenar) {
+super(kenar);
+}
+@Override
+protected double AlanHesapla() {
+return getKenar1() * getKenar1();
+}
+@Override
+protected double CevreHesapla() {
+return 4 * getKenar1();
+}
+@Override
+public void EkranaYazdir() {
+System.out.println("Karenin Alanı: " + AlanHesapla());
+System.out.println("Karenin Çevresi: " + CevreHesapla());
+}
+
+}
+
+public class Silindir extends SekilBase {
+private double yukseklik;
+
+private double getYukseklik() {
+return yukseklik;
+}
+private void setYukseklik(double yukseklik) {
+if (yukseklik < 0) {
+this.yukseklik = 0;
+System.out.println("Yükseklik negatif olamaz!");
+} else {
+this.yukseklik = yukseklik;
+}
+}
+
+public Silindir(double yukseklik, double yariCap) {
+super(yariCap);
+this.setYukseklik(yukseklik);
+}
+
+@Override
+protected double AlanHesapla() {
+return 8;
+}
+@Override
+protected double CevreHesapla() {
+return 2 * Math.PI * getKenar1() * getYukseklik();
+}
+
+@Override
+public void EkranaYazdir() {
+System.out.println("Silindirin Alanı: " + AlanHesapla());
+System.out.println("Silindirin Çevresi: " + CevreHesapla());
+}
+
+
+}
+
+public class Ucgen extends SekilBase {
+
+private double kenar2;
+private double taban;
+private double yukseklik;
+
+private double getKenar2() {
+return kenar2;
+}
+
+private void setKenar2(double kenar2) {
+if (kenar2 < 0) {
+this.kenar2 = 0;
+System.out.println("Kenar negatif olamaz!");
+} else {
+this.kenar2 = kenar2;
+}
+}
+private double getTaban() {
+return taban;
+}
+private void setTaban(double taban) { 
+if (taban < 0) {
+this.taban = 0;
+System.out.println("Taban negatif olamaz!");
+} else {
+this.taban = taban;
+}
+} 
+
+private double getYukseklik() {
+return yukseklik;
+}
+private void setYukseklik(double yukseklik) {
+if (yukseklik < 0) {
+this.yukseklik = 0;
+System.out.println("Yükseklik negatif olamaz!");
+} else {
+this.yukseklik = yukseklik;
+}
+} 
+
+public Ucgen(double kenar1,double kenar2,double taban,double yukseklik)
+{
+super(kenar1);
+this.setKenar2(kenar2);
+this.setTaban(taban);
+this.setYukseklik(yukseklik);
+} 
+
+@Override
+protected double AlanHesapla() {
+return getTaban() * getYukseklik() / 2;
+}
+@Override
+protected double CevreHesapla() {
+return getKenar1() + getKenar2() + getTaban();
+}
+@Override
+public void EkranaYazdir() {
+System.out.println("Üçgenin Alanı: " + AlanHesapla());
+System.out.println("Üçgenin Çevresi: " + CevreHesapla());
+}
+}
+

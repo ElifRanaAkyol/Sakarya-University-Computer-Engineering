@@ -1,0 +1,229 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    05/26/2025  13:59:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\harf.obj, .\Objects\keypad.obj TO .\Objects\deney PRINT (.\
+>> Listings\deney.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\harf.obj (HARF)
+  .\Objects\keypad.obj (KEYPAD)
+
+
+LINK MAP OF MODULE:  .\Objects\deney (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+* OVERLAP * CODE    0000H     006EH     ABSOLUTE     
+* OVERLAP * CODE    0000H     00DFH     ABSOLUTE     
+                    00DFH     0721H                  *** GAP ***
+            CODE    0800H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+UNRESOLVED EXTERNAL SYMBOLS:
+   ?C_START
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\deney (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/26/2025  13:59:42  PAGE 2
+
+
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        HARF
+  C:0030H         SYMBOL        BASLA
+  C:0065H         SYMBOL        BEKLE
+  C:0036H         SYMBOL        DONGU
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  C:0067H         SYMBOL        TEKRAR
+  C:0000H         LINE#         2
+  C:0030H         LINE#         6
+  C:0033H         LINE#         7
+  C:0036H         LINE#         11
+  C:0039H         LINE#         12
+  C:003CH         LINE#         13
+  C:003EH         LINE#         14
+  C:0041H         LINE#         17
+  C:0044H         LINE#         18
+  C:0047H         LINE#         19
+  C:0049H         LINE#         20
+  C:004CH         LINE#         23
+  C:004FH         LINE#         24
+  C:0052H         LINE#         25
+  C:0054H         LINE#         26
+  C:0057H         LINE#         29
+  C:005AH         LINE#         30
+  C:005DH         LINE#         31
+  C:005FH         LINE#         32
+  C:0062H         LINE#         34
+  C:0065H         LINE#         38
+  C:0067H         LINE#         40
+  C:0069H         LINE#         41
+  C:006BH         LINE#         42
+  C:006DH         LINE#         43
+  -------         ENDMOD        HARF
+
+  -------         MODULE        KEYPAD
+  C:00A0H         SYMBOL        ALTI_BAS
+  C:008EH         SYMBOL        A_BAS
+  C:0030H         SYMBOL        BASLA
+  C:009AH         SYMBOL        BES_BAS
+  C:007CH         SYMBOL        BIR_BAS
+  C:00A6H         SYMBOL        B_BAS
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/26/2025  13:59:42  PAGE 3
+
+
+  C:00BEH         SYMBOL        C_BAS
+  C:00B8H         SYMBOL        DOKUZ_BAS
+  C:0036H         SYMBOL        DONGU
+  C:00DCH         SYMBOL        DONUS
+  C:0094H         SYMBOL        DORT_BAS
+  C:00D6H         SYMBOL        D_BAS
+  C:0082H         SYMBOL        IKI_BAS
+  C:00D0H         SYMBOL        KARE_BAS
+  D:0080H         SYMBOL        P0
+  D:00B0H         SYMBOL        P3
+  C:00B2H         SYMBOL        SEKIZ_BAS
+  C:00CAH         SYMBOL        SIFIR_BAS
+  C:0088H         SYMBOL        UC_BAS
+  C:00ACH         SYMBOL        YEDI_BAS
+  C:00C4H         SYMBOL        YILDIZ_BAS
+  C:0000H         LINE#         2
+  C:0030H         LINE#         6
+  C:0033H         LINE#         7
+  C:0036H         LINE#         11
+  C:0039H         LINE#         12
+  C:003BH         LINE#         13
+  C:003EH         LINE#         14
+  C:0041H         LINE#         15
+  C:0044H         LINE#         16
+  C:0047H         LINE#         17
+  C:0049H         LINE#         20
+  C:004BH         LINE#         21
+  C:004EH         LINE#         22
+  C:0051H         LINE#         23
+  C:0054H         LINE#         24
+  C:0057H         LINE#         25
+  C:0059H         LINE#         28
+  C:005BH         LINE#         29
+  C:005EH         LINE#         30
+  C:0061H         LINE#         31
+  C:0064H         LINE#         32
+  C:0067H         LINE#         33
+  C:0069H         LINE#         36
+  C:006BH         LINE#         37
+  C:006EH         LINE#         38
+  C:0071H         LINE#         39
+  C:0074H         LINE#         40
+  C:0077H         LINE#         41
+  C:0079H         LINE#         43
+  C:007CH         LINE#         46
+  C:007FH         LINE#         47
+  C:0082H         LINE#         49
+  C:0085H         LINE#         50
+  C:0088H         LINE#         52
+  C:008BH         LINE#         53
+  C:008EH         LINE#         55
+  C:0091H         LINE#         56
+  C:0094H         LINE#         58
+  C:0097H         LINE#         59
+  C:009AH         LINE#         61
+  C:009DH         LINE#         62
+  C:00A0H         LINE#         64
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/26/2025  13:59:42  PAGE 4
+
+
+  C:00A3H         LINE#         65
+  C:00A6H         LINE#         67
+  C:00A9H         LINE#         68
+  C:00ACH         LINE#         70
+  C:00AFH         LINE#         71
+  C:00B2H         LINE#         73
+  C:00B5H         LINE#         74
+  C:00B8H         LINE#         76
+  C:00BBH         LINE#         77
+  C:00BEH         LINE#         79
+  C:00C1H         LINE#         80
+  C:00C4H         LINE#         82
+  C:00C7H         LINE#         83
+  C:00CAH         LINE#         85
+  C:00CDH         LINE#         86
+  C:00D0H         LINE#         88
+  C:00D3H         LINE#         89
+  C:00D6H         LINE#         91
+  C:00D9H         LINE#         92
+  C:00DCH         LINE#         95
+  -------         ENDMOD        KEYPAD
+
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0002H
+
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      006DH
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?C_START
+    MODULE:  .\Objects\STARTUP.obj (?C_STARTUP)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?C_START
+    MODULE:  .\Objects\STARTUP.obj (?C_STARTUP)
+    ADDRESS: 080AH
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0100H BYTE (12%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=348
+LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)

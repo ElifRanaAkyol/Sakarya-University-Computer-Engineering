@@ -1,0 +1,75 @@
+A51 MACRO ASSEMBLER  6                                                                    05/12/2025 13:20:18 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\6.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 6.a51 SET(SMALL) DEBUG PRINT(.\Listings\6.lst) OBJECT(.\Objects\6.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+0000 802E              2     sjmp basla
+0030                   3     org 0030h
+0030                   4     basla:
+0030 7580FF            5     mov p0,#0ffh
+0033 1188              6     acall bekle
+0035 7580FE            7     mov p0, #0feh
+0038 1188              8     acall bekle
+003A 7580FC            9     mov p0, #0fch
+003D 1188             10     acall bekle
+003F 7580F8           11     mov p0, #0f8h
+0042 1188             12     acall bekle
+0044 7580F0           13     mov p0, #0f0h
+0047 1188             14     acall bekle
+0049 7580E0           15     mov p0, #0e0h
+004C 1188             16     acall bekle
+004E 7580C0           17     mov p0, #0c0h
+0051 1188             18     acall bekle
+0053 758080           19     mov p0, #080h
+0056 1188             20     acall bekle
+0058 758000           21     mov p0, #00h
+005B 1188             22     acall bekle
+                      23     
+005D 75907F           24     mov p1,#7fh
+0060 1188             25     acall bekle
+0062 75903F           26     mov p1, #3fh
+0065 1188             27     acall bekle
+0067 75901F           28     mov p1, #1fh
+006A 1188             29     acall bekle
+006C 75900F           30     mov p1, #0fh
+006F 1188             31     acall bekle
+0071 759007           32     mov p1, #07h
+0074 1188             33     acall bekle
+0076 759003           34     mov p1, #03h
+0079 1188             35     acall bekle
+007B 759001           36     mov p1,#01h
+007E 1188             37     acall bekle
+0080 759000           38     mov p1, #00h
+0083 1188             39     acall bekle
+0085 020030           40     ljmp basla
+0088                  41     bekle:
+0088 7FFF             42     mov r7,#0ffh
+008A 7EFF             43     tekrar: mov r6,#0ffh
+008C DEFE             44     djnz r6,$
+008E DFFA             45     djnz r7,tekrar
+0090 22               46     ret
+                      47     end
+A51 MACRO ASSEMBLER  6                                                                    05/12/2025 13:20:18 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BASLA. . . . . . .  C ADDR   0030H   A   
+BEKLE. . . . . . .  C ADDR   0088H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TEKRAR . . . . . .  C ADDR   008AH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

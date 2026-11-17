@@ -1,0 +1,3 @@
+".\Objects\sinus.obj" 
+TO ".\Objects\mikro" 
+PRINT(".\Listings\mikro.m51") RAMSIZE(256) 

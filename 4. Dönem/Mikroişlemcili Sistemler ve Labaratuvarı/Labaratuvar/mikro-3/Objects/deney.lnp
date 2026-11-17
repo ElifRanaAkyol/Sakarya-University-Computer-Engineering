@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\harf.obj",
+".\Objects\keypad.obj" 
+TO ".\Objects\deney" 
+PRINT(".\Listings\deney.m51") RAMSIZE(256) 
